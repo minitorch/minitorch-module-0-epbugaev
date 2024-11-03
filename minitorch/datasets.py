@@ -5,6 +5,17 @@ from typing import List, Tuple
 
 
 def make_pts(N):
+    """Generate N 2d points with coordinates between 0.0 and 1.0
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        List of tuples with points' coordinates
+
+    """
     X = []
     for i in range(N):
         x_1 = random.random()
@@ -15,12 +26,26 @@ def make_pts(N):
 
 @dataclass
 class Graph:
+    """A Graph is a number of 2d points with y values. 
+    """
     N: int
     X: List[Tuple[float, float]]
     y: List[int]
 
 
 def simple(N):
+    """Assign y according to the following rule: 
+    1s are points left to x=0.5, 0s are points right to 0.5
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -30,6 +55,18 @@ def simple(N):
 
 
 def diag(N):
+    """Assign y according to the following rule: 
+    1s below line x + y = 1, 0s above. 
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -39,6 +76,18 @@ def diag(N):
 
 
 def split(N):
+    """Assign y according to the following rule: 
+    Middle of 0s surrounded on left and right by 1s.
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -48,6 +97,18 @@ def split(N):
 
 
 def xor(N):
+    """Assign y according to the following rule: 
+    Chess-like grid is created from 1s and 0s.
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -57,6 +118,18 @@ def xor(N):
 
 
 def circle(N):
+    """Assign y according to the following rule: 
+    Two circles are crated (0s surrounded by circle of 1s).
+
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -67,7 +140,18 @@ def circle(N):
 
 
 def spiral(N):
+    """Assign y according to the following rule: 
+    Two not intersecting spirals are created - one with 1 class and one with 2 class.
 
+    Args:
+    ----
+        N: number of points
+
+    Returns:
+    -------
+        Graph with assigned y values
+
+    """
     def x(t):
         return t * math.cos(t) / 20.0
 
