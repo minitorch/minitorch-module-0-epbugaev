@@ -42,8 +42,8 @@ def id(a):
 def add(a, b):
     return a + b
 
-def neg(a, b):
-    return a - b
+def neg(a):
+    return -a
 
 def lt(a, b):
     return a < b
@@ -52,7 +52,7 @@ def eq(a, b):
     return a == b
 
 def max(a, b):
-    return max(a, b)
+    return a if a > b else b
 
 def is_close(a, b):
     return abs(a - b) < 1e-2
@@ -102,3 +102,14 @@ def relu_back(a, b):
 
 
 # TODO: Implement for Task 0.3.
+def negList():
+    pass
+
+def addLists():
+    pass
+
+def sum():
+    pass
+
+def prod():
+    pass
