@@ -33,7 +33,57 @@ from typing import Callable, Iterable
 
 
 # TODO: Implement for Task 0.1.
+def mul(a, b):
+    return a * b
 
+def id(a):
+    return a
+
+def add(a, b):
+    return a + b
+
+def neg(a, b):
+    return a - b
+
+def lt(a, b):
+    return a < b
+
+def eq(a, b):
+    return a == b
+
+def max(a, b):
+    return max(a, b)
+
+def is_close(a, b):
+    return abs(a - b) < 1e-2
+
+def sigmoid(a):
+    if a >= 0:
+        return 1 / (1 + math.exp(-1 * a))
+    return math.exp(a) / (1 + math.exp(a))
+
+def relu(a):
+    return max(0, a)
+
+def log(a): 
+    return math.log(a)
+
+def exp(a):
+    return math.exp(a)
+
+def inv(a):
+    return 1 / a
+
+def log_back(a, b):
+    return b / a
+
+def inv_back(a, b):
+    return - b / (a * a)
+
+def relu_back(a, b):
+    if a < 0:
+        return 0
+    return b
 
 # ## Task 0.3
 
