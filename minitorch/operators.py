@@ -102,14 +102,34 @@ def relu_back(a, b):
 
 
 # TODO: Implement for Task 0.3.
-def negList():
-    pass
+def map(f: Callable, a: Iterable):
+    for item in a: 
+        yield f(item)
 
-def addLists():
-    pass
+def zipWith(f: Callable, a: Iterable, b: Iterable):
+    for item_a, item_b in zip(a, b):
+        yield f(item_a, item_b)
 
-def sum():
-    pass
+def reduce(f: Callable, a: Iterable):
+    res = None
+    for item in a:
+        if res is None:
+            res = item
+        else: 
+            res = f(res, item)
+    return res
 
-def prod():
-    pass
+def negList(a: list):
+    return list(map(neg, a))
+
+def addLists(a: Iterable, b: Iterable):
+    return zipWith(add, a, b)
+
+def sum(a: Iterable):
+    res = reduce(add, a)
+    if res is None:
+        return 0
+    return res
+
+def prod(a: Iterable):
+    return reduce(mul, a)
